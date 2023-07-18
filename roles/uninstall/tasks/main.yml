@@ -1,0 +1,14 @@
+---
+- name: "uninstall snap packages"
+  snap:
+    name:
+      - "{{ item }}"
+    state: absent
+  loop: "{{ remove_snap }}"
+
+- name: "uninstall apt packages"
+  apt:
+    name:
+      - "{{ item }}"
+    state: absent
+  loop: "{{ remove_apt }}"

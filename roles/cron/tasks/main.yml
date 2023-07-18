@@ -1,0 +1,6 @@
+---
+- name: install hardlink anti-delete mechanism
+  cron:
+    name: "data hardlink recycle bin"
+    minute: "*/5"
+    job: "d=/data/.recycle-bin;mkdir ${d};chattr -i ${d};cp -prlu /data/* ${d}/;chattr +i ${d}"

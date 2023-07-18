@@ -1,0 +1,44 @@
+---
+- name: Adding dirty expire centiseconds
+  sysctl:
+    name: vm.dirty_writeback_centisecs
+    value: 100
+    state: present
+
+- name: Adding dirty expire centiseconds
+  sysctl:
+    name: vm.dirty_expire_centisecs
+    value: 500
+    state: present
+
+- name: Adding dirty background ratio
+  sysctl:
+    name: vm.dirty_background_bytes
+    value: 1610612736
+    state: present
+
+- name: Adding dirty ratio
+  sysctl:
+    name: vm.dirty_bytes
+    value: 4294967296
+    state: present
+
+- name: increase minfree KB to about 3% of system memory to assure network and storage have it when they need it.
+  sysctl:
+    name: vm.min_free_kbytes
+    value: 7680000
+
+- name: tell the os to avoid stupid azure port gobblers
+  sysctl:
+    name: net.ipv4.ip_local_reserved_ports
+    value: 65330
+
+- name: adjust box swappiness
+  sysctl:
+    name: vm.swappiness
+    value: 1
+
+- name: adjust zone reclaim mode
+  sysctl:
+    name: vm.zone_reclaim_mode
+    value: 0

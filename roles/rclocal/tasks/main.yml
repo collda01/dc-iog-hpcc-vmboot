@@ -1,0 +1,16 @@
+---
+- name: Add interpreter to beginning of rc.local
+  lineinfile:
+    path: /etc/rc.local
+    line: '#!/bin/bash'
+    state: present
+    insertbefore: BOF
+    create: yes
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Add rc-local service to bootup sequence
+  systemd:
+    name: rc-local
+    enabled: yes

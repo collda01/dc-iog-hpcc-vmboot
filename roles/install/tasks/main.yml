@@ -1,0 +1,20 @@
+---
+- name: "update apt cache"
+  apt:
+    name: "*"
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: "install apt packages"
+  apt:
+    name:
+      - "{{ item }}"
+    state: latest
+  loop: "{{ install_apt }}"
+
+- name: "install snap packages"
+  snap:
+    name:
+      - "{{ item }}"
+    state: latest
+  loop: "{{ install_snap }}"

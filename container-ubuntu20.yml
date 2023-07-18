@@ -1,0 +1,22 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  become: true
+  vars:
+    install_apt:
+      - net-tools
+      - openssh-server
+    remove_apt: []
+    install_snap: []
+    remove_snap: []
+  roles:
+    - install
+    - uninstall
+    - rclocal
+    - gateway
+  tasks:
+    - name: Install public key for ubuntu user
+      authorized_key:
+        user: ubuntu
+        state: present
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC33C4awuyQN+oVhRvc6FNC3hcO38rL9V/VOINnywj5ehgjm84KVfOcR6OA3fn9RdUZFx9Ihq1wW1+s5tWCXhk2/TniZY06tpUmsiMw8pdOT51/zTEDbnWLJ/hiK14ckAu4lFHYr4GO+EOcerivKzZZMqHQIaN882HhCLlqk/zaizd3xN7iazFlFzFgVF0nRYfMuNsW6/YW04qbP2Kzvht0FyEAdqmUi/YSPBkfutawh2ZJzI+H15uxUnusYozHSEjzEgQzaLojCic6imh6MgM1u24bXOkRXQqRRJvyemOcDV13JuIKcMWsHiu3qo88ap4A/9YNc39TK17npoRc74LD"

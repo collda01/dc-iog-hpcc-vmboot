@@ -1,0 +1,48 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  become: true
+  vars:
+    install_apt:
+      - git
+      - lxc
+      - lxc-templates
+      - python3-lxc
+      - net-tools
+      - sysstat
+      - fio
+      - mdadm
+      - cryptsetup
+      - dnsmasq
+    remove_apt: []
+    install_snap: []
+    remove_snap:
+      - lxd
+    encrypted: yes
+    containers: [
+      {
+        cpus: 8,
+        mem: "42G",
+        mount_opts: "rw",
+        dev: "eth1",
+        cidr: "{{ ansible_eth1.ipv4.address }}/{{ ansible_eth1.ipv4.netmask }}",
+        path: "{{ ansible_eth1 }}"
+      },
+      {
+        cpus: 8,
+        mem: "42G",
+        mount_opts: "rw",
+        dev: "eth2",
+        cidr: "{{ ansible_eth2.ipv4.address }}/{{ ansible_eth2.ipv4.netmask }}",
+        path: "{{ ansible_eth2 }}"
+      }
+    ]
+  roles:
+    - install
+    - uninstall
+    - rclocal
+    - las32_v3_raid0
+    - dnsmasq
+    - cron
+    - sysctl
+    - fusion

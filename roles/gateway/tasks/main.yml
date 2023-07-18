@@ -1,0 +1,7 @@
+---
+- name: Add interpreter to beginning of rc.local
+  lineinfile:
+    path: /etc/rc.local
+    line: 'ip route add default via {{ ansible_default_ipv4.gateway }}'
+    state: present
+    insertafter: EOF

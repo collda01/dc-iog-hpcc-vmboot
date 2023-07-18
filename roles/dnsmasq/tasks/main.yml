@@ -1,0 +1,13 @@
+---
+- name: Add interpreter to beginning of rc.local
+  lineinfile:
+    path: /etc/dnsmasq.conf
+    regexp: '^#interface='
+    line: 'interface=eth0'
+    state: present
+
+- name: Add dnsmasq service to bootup sequence
+  systemd:
+    name: dnsmasq
+    state: started
+    enabled: yes

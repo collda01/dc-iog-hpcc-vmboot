@@ -4,6 +4,14 @@
     path: /mnt
     state: absent
 
+- name: Mount temporary SATA as /sata instead
+  mount:
+    path: /containers
+    src: /dev/disk/cloud/azure_resource-part1
+    fstype: auto
+    opts: defaults,nofail,x-systemd.requires=cloud-init.service,_netdev,comment=cloudconfig
+    state: mounted
+
 - name: Create partition on /dev/sdc
   parted:
     device: /dev/sdc

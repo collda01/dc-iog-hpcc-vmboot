@@ -16,7 +16,7 @@
   parted:
     device: /dev/sdc
     fs_type: xfs
-    label: "gpt"
+    label: gpt
     number: 1
     state: present
 

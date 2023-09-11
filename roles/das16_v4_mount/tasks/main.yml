@@ -1,0 +1,26 @@
+---
+- name: Remove default ephemeral mountpoint of /mnt
+  mount:
+    path: /mnt
+    state: absent
+
+- name: Create partition on /dev/sdc
+  parted:
+    device: /dev/sdc
+    fs_type: xfs
+    label: "gpt"
+    number: 1
+    state: present
+
+- name: Format xfs on /dev/sdc1
+  filesystem:
+    fstype: xfs
+    dev: /dev/sdc1
+
+- name: Add mountpoint for /dev/sdc1
+  mount:
+    path: /data
+    src: /dev/sdc1
+    fstype: xfs
+    opts: noatime
+    state: mounted

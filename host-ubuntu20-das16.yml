@@ -49,7 +49,7 @@
     - install
     - uninstall
     - rclocal
-    - las32_v3_raid0
+    - das16_v4_mount
     - dnsmasq
     - cron
     - sysctl

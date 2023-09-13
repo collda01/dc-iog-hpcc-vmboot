@@ -1,7 +1,7 @@
 ---
 virtualmachines:
   hosts:
-    single-node-4:
+    single-host-4:
       ansible_host: 10.232.185.244
-    single-node-5:
+    single-host-5:
       ansible_host: 10.232.185.245

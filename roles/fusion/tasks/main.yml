@@ -1,4 +1,0 @@
----
-- name: Start running lxc operations
-  include_tasks:
-    file: lxc.yml

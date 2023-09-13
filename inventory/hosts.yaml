@@ -1,15 +1,7 @@
 ---
 virtualmachines:
   hosts:
-    neutral-node-4:
-      ansible_host: 10.232.185.164
-    neutral-node-5:
-      ansible_host: 10.232.185.165
-    neutral-node-6:
-      ansible_host: 10.232.185.166
-    neutral-node-7:
-      ansible_host: 10.232.185.167
-    neutral-node-8:
-      ansible_host: 10.232.185.168
-    admin-node-10:
-      ansible_host: 10.232.185.170
+    single-node-4:
+      ansible_host: 10.232.185.244
+    single-node-5:
+      ansible_host: 10.232.185.245

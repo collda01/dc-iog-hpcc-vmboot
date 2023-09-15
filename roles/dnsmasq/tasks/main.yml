@@ -6,7 +6,7 @@
     line: 'interface=eth0'
     state: present
 
-- name: Use alternat port for dnsmasq
+- name: Use alternate port for dnsmasq
   lineinfile:
     path: /etc/dnsmasq.conf
     regexp: '^#listen-address='

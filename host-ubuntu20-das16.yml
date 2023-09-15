@@ -18,6 +18,6 @@
     - uninstall
     - rclocal
     - das16_v4_mount
-    - dnsmasq
+    #- dnsmasq
     - cron
     - sysctl

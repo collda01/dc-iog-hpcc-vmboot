@@ -1,9 +1,16 @@
 ---
-- name: Add interpreter to beginning of rc.local
+- name: Set up interface for dnsmasq
   lineinfile:
     path: /etc/dnsmasq.conf
     regexp: '^#interface='
     line: 'interface=eth0'
+    state: present
+
+- name: Use alternat port for dnsmasq
+  lineinfile:
+    path: /etc/dnsmasq.conf
+    regexp: '^#listen-address='
+    line: 'listen-address=127.0.0.1#5300'
     state: present
 
 - name: Add dnsmasq service to bootup sequence

@@ -1,0 +1,54 @@
+---
+- hosts: virtualmachines
+  become: true
+  vars:
+    install_apt:
+      - git
+      - lxc
+      - lxc-templates
+      - python3-lxc
+      - net-tools
+      - sysstat
+      - fio
+      - mdadm
+      - cryptsetup
+      - dnsmasq
+    remove_apt: []
+    install_snap: []
+    remove_snap:
+      - lxd
+    containers: [
+      {
+        cpus: 8,
+        mem: "20G",
+        mount_opts: "rw",
+        dev: "eth1",
+        cidr: "{{ ansible_eth1.ipv4.address }}/{{ ansible_eth1.ipv4.netmask }}",
+        path: "{{ ansible_eth1 }}"
+      },
+      {
+        cpus: 8,
+        mem: "20G",
+        mount_opts: "rw",
+        dev: "eth2",
+        cidr: "{{ ansible_eth2.ipv4.address }}/{{ ansible_eth2.ipv4.netmask }}",
+        path: "{{ ansible_eth2 }}"
+      }, 
+      {
+        cpus: 8,
+        mem: "20G",
+        mount_opts: "rw",
+        dev: "eth3",
+        cidr: "{{ ansible_eth3.ipv4.address }}/{{ ansible_eth3.ipv4.netmask }}",
+        path: "{{ ansible_eth3 }}"
+      }
+    ]
+  roles:
+    - install
+    - uninstall
+    - rclocal
+    - das16_v4_mount
+    - dnsmasq
+    - cron
+    - sysctl
+    - fusion

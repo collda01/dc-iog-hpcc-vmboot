@@ -42,12 +42,44 @@
         cidr: "{{ ansible_eth3.ipv4.address }}/{{ ansible_eth3.ipv4.netmask }}",
         path: "{{ ansible_eth3 }}"
       }
+      {
+        cpus: 8,
+        mem: "20G",
+        mount_opts: "rw",
+        dev: "eth4",
+        cidr: "{{ ansible_eth4.ipv4.address }}/{{ ansible_eth4.ipv4.netmask }}",
+        path: "{{ ansible_eth4 }}"
+      },
+      {
+        cpus: 8,
+        mem: "20G",
+        mount_opts: "rw",
+        dev: "eth5",
+        cidr: "{{ ansible_eth5.ipv4.address }}/{{ ansible_eth5.ipv4.netmask }}",
+        path: "{{ ansible_eth5 }}"
+      }, 
+      {
+        cpus: 8,
+        mem: "20G",
+        mount_opts: "rw",
+        dev: "eth6",
+        cidr: "{{ ansible_eth6.ipv4.address }}/{{ ansible_eth6.ipv4.netmask }}",
+        path: "{{ ansible_eth6 }}"
+      }
+      {
+        cpus: 8,
+        mem: "20G",
+        mount_opts: "rw",
+        dev: "eth7",
+        cidr: "{{ ansible_eth7.ipv4.address }}/{{ ansible_eth7.ipv4.netmask }}",
+        path: "{{ ansible_eth7 }}"
+      }
     ]
   roles:
     - install
     - uninstall
     - rclocal
-    - das16_v4_mount
+    - eas16_v4_mount
     - dnsmasq
     - cron
     - sysctl

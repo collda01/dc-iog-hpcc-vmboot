@@ -41,7 +41,7 @@
         dev: "eth3",
         cidr: "{{ ansible_eth3.ipv4.address }}/{{ ansible_eth3.ipv4.netmask }}",
         path: "{{ ansible_eth3 }}"
-      }
+      },
       {
         cpus: 8,
         mem: "20G",
@@ -65,7 +65,7 @@
         dev: "eth6",
         cidr: "{{ ansible_eth6.ipv4.address }}/{{ ansible_eth6.ipv4.netmask }}",
         path: "{{ ansible_eth6 }}"
-      }
+      },
       {
         cpus: 8,
         mem: "20G",

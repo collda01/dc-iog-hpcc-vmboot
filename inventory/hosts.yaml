@@ -1,7 +1,25 @@
 ---
 virtualmachines:
   hosts:
-    single-host-4:
-      ansible_host: 10.232.185.244
-    single-host-5:
-      ansible_host: 10.232.185.245
+    admin-10-0:
+      ansible_host: 10.232.206.4
+    roxie-10-1:
+      ansible_host: 10.232.206.5
+    roxie-10-2:
+      ansible_host: 10.232.206.6
+    roxie-10-3:
+      ansible_host: 10.232.206.7
+    roxie-10-4:
+      ansible_host: 10.232.206.8
+    roxie-10-5:
+      ansible_host: 10.232.206.9
+    roxie-10-6:
+      ansible_host: 10.232.206.10
+    roxie-10-7:
+      ansible_host: 10.232.206.11
+    roxie-10-8:
+      ansible_host: 10.232.206.12
+    roxie-10-9:
+      ansible_host: 10.232.206.13
+    roxie-10-10:
+      ansible_host: 10.232.206.14

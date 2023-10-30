@@ -1,16 +1,9 @@
 ---
-- name: Remove default ephemeral mountpoint of /mnt
-  mount:
-    path: /mnt
-    state: absent
-
-- name: Mount temporary SATA as /sata instead
-  mount:
-    path: /containers
-    src: /dev/disk/cloud/azure_resource-part1
-    fstype: auto
-    opts: defaults,nofail,x-systemd.requires=cloud-init.service,_netdev,comment=cloudconfig
-    state: mounted
+- name: Create a directory on the temp disk for container data
+  file:
+    path: /mnt/containers
+    state: directory
+    mode: '0755'
 
 - name: Create partition on /dev/sdc
   parted:

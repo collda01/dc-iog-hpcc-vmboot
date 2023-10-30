@@ -1,7 +1,7 @@
 ---
-- name: Relink the /var/lib/lxc directory to the /containers mountpoint
+- name: Relink the /var/lib/lxc directory to the /mnt/containers mountpoint
   file:
-    src: /containers
+    src: /mnt/containers
     dest: /var/lib/lxc
     force: yes
     state: link

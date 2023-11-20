@@ -40,5 +40,5 @@
 - name: Update config with storage name
   replace:
     path: /etc/blobfuse2/config.yaml
-    regexp: '\{%acct\}'
+    regexp: '_ACCT_'
     replace: '{{storage_name}}'

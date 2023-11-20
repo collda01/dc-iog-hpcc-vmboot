@@ -36,3 +36,9 @@
     owner: root
     group: root
     mode: '644'
+
+- name: Update config with storage name
+  replace:
+    path: /etc/blobfuse2/config.yaml
+    regexp: '{%acct}'
+    replace: '{{storage_name}}'

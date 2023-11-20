@@ -48,7 +48,7 @@
 
 - name: Install MS Package repo
   command: dpkg -i packages-microsoft-prod.deb
-    ignore_errors: yes
+  ignore_errors: yes
 
 - name: Run "apt-get update"
   apt:

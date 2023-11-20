@@ -17,7 +17,7 @@ file_cache:
 
 azstorage:
   type: block
-  account-name: {$acct}
-  endpoint: https://{$acct}.blob.core.windows.net/
+  account-name: {%acct}
+  endpoint: https://{%acct}.blob.core.windows.net/
   mode: msi
   container: hpcc-data

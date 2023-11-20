@@ -80,8 +80,8 @@
     - install
     - uninstall
     - rclocal
-    - eas16_v4_mount
+    - mount
     - dnsmasq
     - cron
     - sysctl
-    - fusion
+    #- fusion

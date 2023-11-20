@@ -1,0 +1,30 @@
+---
+- name: Create a directory on the temp disk for container data
+  file:
+    path: /mnt/containers
+    state: directory
+    mode: '0755'
+
+- name: Create directory for blob temp files
+  file:
+    path: /mnt/resource/blobfuse2tmp
+    owner: root
+    group: root
+    state: directory
+    mode: '777'
+
+- name: Create mount directory
+  file:
+    path: /data
+    owner: root
+    group: root
+    state: directory
+    mode: '777'
+
+- name: Copy config file
+    copy:
+      src: files/config.yaml
+      dest: /etc/blobfuse2/config.yaml
+      owner: root
+      group: root
+      mode: '644'

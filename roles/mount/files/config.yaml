@@ -1,0 +1,23 @@
+# Config for Azure Blob mounting
+
+allow-other: true
+
+logging:
+  type: syslog
+  level: log_debug
+
+components:
+  - libfuse
+  - file_cache
+  - attr_cache
+  - azstorage
+
+file_cache:
+  path: /mnt/resource/blobfuse2tmp
+
+azstorage:
+  type: block
+  account-name: {$acct}
+  endpoint: https://{$acct}.blob.core.windows.net/
+  mode: msi
+  container: hpcc-data

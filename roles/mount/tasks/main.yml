@@ -68,6 +68,7 @@
 
 - name: Create storage account container
   azure_rm_storageblob:
+    resource_group: '{{resource_group}}'
     storage_account_name: '{{storage_name}}'
     auth_source: msi
     container: hpcc-data

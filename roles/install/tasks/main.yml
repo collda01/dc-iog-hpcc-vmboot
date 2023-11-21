@@ -18,3 +18,10 @@
       - "{{ item }}"
     state: latest
   loop: "{{ install_snap }}"
+
+- name: "install pip packages"
+  pip:
+    name:
+      - "{{ item }}"
+    state: latest
+  loop: "{{ install_pip }}"

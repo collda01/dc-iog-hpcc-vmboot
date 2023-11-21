@@ -68,6 +68,7 @@
 
 - name: Mount storage account
   command: blobfuse2 mount /data --config-file=/etc/blobfuse2/config.yaml
+  ignore_errors: yes
 
 - name: Add mount point to fstab
   mount:

@@ -67,6 +67,7 @@
 - name: Mount storage account
   mount:
     path: /data
+    src: blobfuse2
     fstype: fuse
     opts: defaults,_netdev,--config-file=/etc/blobfuse2/config.yaml
     state: mounted

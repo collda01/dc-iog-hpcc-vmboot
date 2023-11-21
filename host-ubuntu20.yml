@@ -23,7 +23,7 @@
     install_pip:
       - lxml
       - packaging
-      - azure
+      - azure.storage.cloudstorageaccount
     containers: [
       {
         cpus: 8,

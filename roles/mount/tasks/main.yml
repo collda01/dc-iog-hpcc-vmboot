@@ -66,6 +66,13 @@
     name: blobfuse2
     state: latest
 
+- name: Create storage account container
+  azure_rm_storageblob:
+    storage_account_name: '{{storage_name}}'
+    auth_source: msi
+    container: hpcc-data
+    state: present
+
 - name: Mount storage account
   command: blobfuse2 mount /data --config-file=/etc/blobfuse2/config.yaml
   ignore_errors: yes

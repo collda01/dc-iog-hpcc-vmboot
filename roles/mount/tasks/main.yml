@@ -63,3 +63,10 @@
   apt:
     name: blobfuse2
     state: latest
+
+- name: Mount storage account
+  mount:
+    path: /data
+    fstype: fuse
+    opts: defaults,_netdev,--config-file=/etc/blobfuse2/config.yaml
+    state: mounted

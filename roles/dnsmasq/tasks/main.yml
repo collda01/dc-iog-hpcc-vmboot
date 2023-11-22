@@ -6,12 +6,12 @@
     line: 'interface=eth0'
     state: present
 
-- name: Use alternate port for dnsmasq
-  lineinfile:
-    path: /etc/dnsmasq.conf
-    regexp: '^#listen-address='
-    line: 'listen-address=127.0.0.1#5353'
-    state: present
+#- name: Use alternate port for dnsmasq
+#  lineinfile:
+#    path: /etc/dnsmasq.conf
+#    regexp: '^#listen-address='
+#    line: 'listen-address=127.0.0.1#5353'
+#    state: present
 
 - name: Add dnsmasq service to bootup sequence
   systemd:

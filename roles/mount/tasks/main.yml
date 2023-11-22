@@ -44,14 +44,18 @@
     name: blobfuse2
     state: latest
 
-- name: Mount storage account
-  command: blobfuse2 mount /data --config-file=/etc/blobfuse2/config.yaml
-  ignore_errors: yes
+- name: Copy mount file
+  copy:
+    src: files/mount.sh
+    dest: /etc/blobfuse2/mount.sh
+    owner: root
+    group: root
+    mode: '744'
 
-- name: Add mount point to fstab
+- name: Mount storage through fstab
   mount:
+    src: /etc/blobfuse2/mount.sh
     path: /data
-    src: blobfuse2
     fstype: fuse
-    opts: defaults,_netdev,--config-file=/etc/blobfuse2/config.yaml
-    state: present
+    opts: defaults,_netdev
+    state: mounted

@@ -46,7 +46,7 @@
       systemctl restart systemd-resolved | tee -a /var/log/container-init.log
       apt-get update 2>&1 | tee -a /var/log/container-init.log
       apt-get install -y git ansible 2>&1 | tee -a /var/log/container-init.log
-      git clone -b roxie_x https://github.com/collda01/dc-iog-hpcc-vmboot.git /opt/ansible 2>&1 | tee -a /var/log/container-init.log
+      git clone -b roxie_storage_mount https://github.com/collda01/dc-iog-hpcc-vmboot.git /opt/ansible 2>&1 | tee -a /var/log/container-init.log
       ansible-galaxy collection install ansible.utils
       ansible-playbook /opt/ansible/container-ubuntu20.yml 2>&1 | tee -a /var/log/container-init.log
   loop: "{{ containers }}"

@@ -11,6 +11,11 @@
   args:
     executable: /bin/bash
 
+- name: Install XFS module
+  modprobe:
+    name: xfs
+    state: present
+
 - name: Install containers
   lxc_container:
     name: container{{  "%03d" | format(item.path.ipv4.address.split(".")[2]|int) }}{{  "%03d" | format(item.path.ipv4.address.split(".")[3]|int) }}

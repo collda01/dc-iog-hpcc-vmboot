@@ -20,7 +20,7 @@
   lxc_container:
     name: container{{  "%03d" | format(item.path.ipv4.address.split(".")[2]|int) }}{{  "%03d" | format(item.path.ipv4.address.split(".")[3]|int) }}
     backing_store: loop
-    fs_size: 40G
+    fs_size: 48G
     fs_type: xfs
     container_log: true
     state: started

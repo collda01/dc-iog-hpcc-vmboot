@@ -1,10 +1,10 @@
 ---
-- name: Relink the /var/lib/lxc directory to the /mnt/containers mountpoint
-  file:
-    src: /mnt/containers
-    dest: /var/lib/lxc
-    force: yes
-    state: link
+#- name: Relink the /var/lib/lxc directory to the /mnt/containers mountpoint
+#  file:
+#    src: /mnt/containers
+#    dest: /var/lib/lxc
+#    force: yes
+#    state: link
 
 - name: Empty lxc defaults file
   shell: cat /dev/null > /etc/lxc/default.conf

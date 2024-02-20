@@ -1,10 +1,4 @@
 ---
-- name: Create a directory on the temp disk for container data
-  file:
-    path: /mnt/containers
-    state: directory
-    mode: '0755'
-
 - name: Create directory for blob temp files
   file:
     path: /mnt/resource/blobfuse2tmp

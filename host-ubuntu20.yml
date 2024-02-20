@@ -82,6 +82,5 @@
     - rclocal
     - mount
     - dnsmasq
-    - cron
     - sysctl
     - fusion

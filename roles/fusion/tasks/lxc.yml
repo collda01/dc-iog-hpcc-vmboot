@@ -12,7 +12,7 @@
 - name: Install containers
   lxc_container:
     name: container{{  "%03d" | format(item.path.ipv4.address.split(".")[2]|int) }}{{  "%03d" | format(item.path.ipv4.address.split(".")[3]|int) }}
-    fs_size: 48G
+    fs_size: "{{ container_gb }}G"
     fs_type: xfs
     container_log: true
     state: started
@@ -25,7 +25,7 @@
       - "lxc.net.0.name=eth0"
       - "lxc.net.0.flags=up"
       - "lxc.net.0.ipv4.address={{ item.cidr | ansible.utils.ipaddr('host/prefix') }}"
-      - "lxc.mount.entry = /data data none {{ item.mount_opts  }},bind,create=dir 0 0"
+      - "lxc.mount.entry = /mnt/nfs data none {{ item.mount_opts  }},bind,create=dir 0 0"
       - "lxc.cgroup.cpu.cfs_period_us = 100000"
       - "lxc.cgroup.cpu.cfs_quota_us = {{ item.cpus * 100000}}"
       - "lxc.cgroup.memory.limit_in_bytes = {{ item.mem }}"

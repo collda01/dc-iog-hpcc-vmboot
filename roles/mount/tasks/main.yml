@@ -7,7 +7,15 @@
     state: directory
     mode: '777'
 
-- name: Create mount directory
+- name: Create data directory in temp storage
+  file:
+    path: /mnt/nfs
+    owner: root
+    group: root
+    state: directory
+    mode: '777'
+
+- name: Create blob mount directory
   file:
     path: /data
     owner: root

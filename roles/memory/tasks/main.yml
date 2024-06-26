@@ -1,0 +1,14 @@
+---
+- name: Disable transparent hugepage in rc.local
+  lineinfile:
+    path: /etc/rc.local
+    line: 'echo madvise > /sys/kernel/mm/transparent_hugepage/enabled'
+    state: present
+    insertafter: EOF
+
+- name: Disable transparent hugepage defrag in rc.local
+  lineinfile:
+    path: /etc/rc.local
+    line: 'echo madvise > /sys/kernel/mm/transparent_hugepage/defrag'
+    state: present
+    insertafter: EOF

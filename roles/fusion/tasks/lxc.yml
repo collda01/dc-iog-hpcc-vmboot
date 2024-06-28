@@ -26,6 +26,7 @@
       - "lxc.net.0.flags=up"
       - "lxc.net.0.ipv4.address={{ item.cidr | ansible.utils.ipaddr('host/prefix') }}"
       - "lxc.mount.entry = /mnt/nfs data none {{ item.mount_opts  }},bind,create=dir 0 0"
+      - "lxc.mount.entry = /data store none {{ item.mount_opts  }},bind,create=dir 0 0"
       - "lxc.cgroup.cpu.cfs_period_us = 100000"
       - "lxc.cgroup.cpu.cfs_quota_us = {{ item.cpus * 100000}}"
       - "lxc.cgroup.memory.limit_in_bytes = {{ item.mem }}"

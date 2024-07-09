@@ -20,6 +20,8 @@
     template_options: --dist ubuntu --release focal --arch amd64
     container_config:
       - "lxc.apparmor.profile=unconfined"
+      - "lxc.start.auto = 1"
+      - "lxc.start.delay = 2"
       - "lxc.net.0.type=phys"
       - "lxc.net.0.link={{ item.dev }}"
       - "lxc.net.0.name=eth0"

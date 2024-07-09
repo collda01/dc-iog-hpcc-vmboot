@@ -12,3 +12,17 @@
     line: 'echo madvise > /sys/kernel/mm/transparent_hugepage/defrag'
     state: present
     insertafter: EOF
+
+- name: Automate creation of blob temp directory in rc.local
+  lineinfile:
+    path: /etc/rc.local
+    line: 'mkdir -p -m 777 /mnt/resource/blobfuse2tmp'
+    state: present
+    insertafter: EOF
+
+- name: Automate creation of nfs directory in rc.local
+  lineinfile:
+    path: /etc/rc.local
+    line: 'mkdir -p -m 777 /mnt/nfs'
+    state: present
+    insertafter: EOF

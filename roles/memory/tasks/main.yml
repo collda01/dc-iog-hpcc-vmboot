@@ -1,4 +1,11 @@
 ---
+- name: Disable transparent hugepages on host
+  shell: |
+    echo madvise > /sys/kernel/mm/transparent_hugepage/enabled
+    echo madvise > /sys/kernel/mm/transparent_hugepage/defrag
+  args:
+    executable: /bin/bash
+
 - name: Disable transparent hugepage in rc.local
   lineinfile:
     path: /etc/rc.local

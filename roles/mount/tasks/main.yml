@@ -23,6 +23,14 @@
     state: directory
     mode: '777'
 
+- name: Create file mount directory
+  file:
+    path: /filedata
+    owner: root
+    group: root
+    state: directory
+    mode: '777'
+
 - name: Get MS Package repo
   get_url:
     url: https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
@@ -60,4 +68,12 @@
     path: /data
     fstype: fuse
     opts: defaults,_netdev
+    state: mounted
+
+- name: Mount file share through fstab
+  mount:
+    src: //{{ storage_nm }}.file.core.windows.net/hpcc-file
+    path: /filedata
+    fstype: cifs
+    opts: credentials=/etc/smbcredentials/{{ storage_nm }}.cred,serverino,nosharesock,noperm,actimeo=30,mfsymlinks
     state: mounted

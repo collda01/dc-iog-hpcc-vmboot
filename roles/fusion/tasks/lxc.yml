@@ -17,7 +17,7 @@
     container_log: true
     state: started
     template: download
-    template_options: --dist ubuntu --release focal --arch amd64
+    template_options: --dist ubuntu --release jammy --arch amd64
     container_config:
       - "lxc.apparmor.profile=unconfined"
       - "lxc.start.auto = 1"

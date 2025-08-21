@@ -13,7 +13,7 @@
   loop: "{{ install_apt }}"
 
 - name: "install snap packages"
-  snap:
+  community.general.snap:
     name:
       - "{{ item }}"
     state: latest
